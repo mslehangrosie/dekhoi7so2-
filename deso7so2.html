@@ -1,0 +1,1624 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GRADE 7 - REVISION FOR THE FIRST MIDTERM TEST_No3 - Ms Lê Hằng English</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Nunito', sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(-45deg, #8854C0, #FDCB6E, #00C9A7, #E84393, #6C5CE7);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      color: #2d3436;
+      padding: 20px 10px;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Floating SVG Background Pattern */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120"><path fill="%23ffffff" fill-opacity="0.2" d="M30 10 L35 25 L50 25 L38 35 L42 50 L30 40 L18 50 L22 35 L10 25 L25 25 Z M80 70 C85 60 95 60 100 70 C105 80 95 90 80 90 C65 90 55 80 60 70 Z M90 20 A10 10 0 1 0 90 40 A10 10 0 1 0 90 20 Z M20 80 Q30 60 40 80 T60 80"/></svg>');
+      pointer-events: none;
+      z-index: 0;
+      animation: floatPattern 30s linear infinite;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes floatPattern {
+      0% { transform: translateY(0) rotate(0deg); }
+      100% { transform: translateY(-120px) rotate(360deg); }
+    }
+
+    .container {
+      max-width: 850px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Compact Header */
+    .header-box {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 20px;
+      padding: 12px 20px;
+      text-align: center;
+      box-shadow: 0 8px 0 #6C5CE7, 0 15px 20px rgba(0,0,0,0.15);
+      margin-bottom: 12px;
+      border: 3px solid #6C5CE7;
+    }
+
+    .header-title {
+      font-size: 1.1rem;
+      font-weight: 900;
+      color: #6C5CE7;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .ad-banner {
+      background: #FFEAA7;
+      border: 2px dashed #FDCB6E;
+      border-radius: 12px;
+      padding: 6px 12px;
+      margin-top: 6px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #D63031;
+    }
+
+    /* Alert Banner */
+    .alert-box {
+      background: #FFF5F5;
+      border: 3px solid #FF7675;
+      border-radius: 18px;
+      padding: 14px 18px;
+      margin-bottom: 20px;
+      box-shadow: 0 6px 0 #D63031;
+      animation: pulseAlert 2s infinite alternate;
+    }
+
+    @keyframes pulseAlert {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.01); }
+    }
+
+    .alert-title {
+      color: #D63031;
+      font-size: 1rem;
+      font-weight: 900;
+      text-align: center;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .alert-content {
+      color: #2D3436;
+      font-size: 0.92rem;
+      font-weight: 700;
+      line-height: 1.4;
+      text-align: center;
+    }
+
+    /* Section Card */
+    .section-card {
+      background: #FFFFFF;
+      border-radius: 20px;
+      padding: 18px;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 0 #DFE6E9, 0 12px 25px rgba(0,0,0,0.1);
+      border: 3px solid #B2BEC3;
+    }
+
+    .section-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #0984E3;
+      background: #E3F2FD;
+      padding: 8px 14px;
+      border-radius: 12px;
+      margin-bottom: 12px;
+      display: inline-block;
+      border-left: 5px solid #0984E3;
+    }
+
+    .passage-box {
+      background: #F8F9FA;
+      border: 2px solid #E9ECEF;
+      border-radius: 15px;
+      padding: 14px;
+      margin-bottom: 16px;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #2D3436;
+      font-weight: 600;
+    }
+
+    /* Question Box */
+    .question-card {
+      background: #FFFFFF;
+      border-radius: 20px;
+      padding: 18px;
+      margin-bottom: 18px;
+      box-shadow: 0 8px 0 #74B9FF;
+      border: 3px solid #0984E3;
+      transition: transform 0.2s;
+    }
+
+    .q-number {
+      font-weight: 900;
+      color: #0984E3;
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+    }
+
+    .q-text {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #2D3436;
+      margin-bottom: 14px;
+      line-height: 1.5;
+    }
+
+    .phonetic-target {
+      color: #D63031;
+      font-weight: 900;
+      text-decoration: underline;
+    }
+
+    /* Options Grid */
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    @media (max-width: 600px) {
+      .options-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .opt-btn {
+      background: #F1F2F6;
+      border: 3px solid #CED6E0;
+      border-radius: 16px;
+      padding: 12px 16px;
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: #2F3542;
+      cursor: pointer;
+      box-shadow: 0 5px 0 #CED6E0;
+      transition: all 0.15s ease;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .opt-btn:hover:not(:disabled) {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 0 #CED6E0;
+      background: #E4E7EB;
+    }
+
+    .opt-btn:active:not(:disabled) {
+      transform: translateY(2px);
+      box-shadow: 0 3px 0 #CED6E0;
+    }
+
+    /* Correct / Incorrect Styles */
+    .opt-btn.correct {
+      background: #00D26A !important;
+      border-color: #00B058 !important;
+      color: #FFFFFF !important;
+      box-shadow: 0 5px 0 #00B058 !important;
+    }
+
+    .opt-btn.wrong {
+      background: #FF4757 !important;
+      border-color: #D63031 !important;
+      color: #FFFFFF !important;
+      box-shadow: 0 5px 0 #D63031 !important;
+      animation: shake 0.4s ease;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      20%, 60% { transform: translateX(-8px); }
+      40%, 80% { transform: translateX(8px); }
+    }
+
+    .opt-btn:disabled {
+      cursor: default;
+      opacity: 0.85;
+    }
+
+    /* Explanation Box */
+    .explanation-box {
+      margin-top: 14px;
+      background: #FFF9E6;
+      border: 2px solid #FFEAA7;
+      border-radius: 16px;
+      padding: 14px;
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-5deg); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .exp-title {
+      font-weight: 900;
+      color: #D63031;
+      font-size: 0.95rem;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .exp-content {
+      font-size: 0.9rem;
+      color: #2D3436;
+      line-height: 1.55;
+      font-weight: 600;
+    }
+
+    .exp-content ul {
+      margin-left: 18px;
+      margin-top: 4px;
+      margin-bottom: 6px;
+    }
+
+    .exp-content li {
+      margin-bottom: 3px;
+    }
+
+    /* CSS Visuals for Signs / Notices */
+    .sign-no-littering {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      border: 10px solid #D63031;
+      background: #FFFFFF;
+      margin: 10px auto;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    .sign-no-littering::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 10px;
+      background: #D63031;
+      transform: rotate(-45deg);
+    }
+
+    .trash-icon {
+      font-size: 42px;
+      user-select: none;
+    }
+
+    .phone-notice-card {
+      background: #000;
+      border-radius: 24px;
+      padding: 10px;
+      width: 260px;
+      margin: 10px auto;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    }
+
+    .phone-screen {
+      background: #E9ECEF;
+      border-radius: 18px;
+      padding: 12px;
+      color: #2D3436;
+      font-size: 0.85rem;
+    }
+
+    .phone-header {
+      font-weight: 800;
+      text-align: center;
+      color: #0984E3;
+      border-bottom: 2px solid #DFE6E9;
+      padding-bottom: 6px;
+      margin-bottom: 8px;
+    }
+
+    .msg-bubble {
+      background: #FFFFFF;
+      border-radius: 12px;
+      padding: 10px;
+      border-left: 4px solid #00B894;
+      font-weight: 700;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    /* Submit Area */
+    .submit-section {
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    .btn-submit {
+      background: #00B894;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      padding: 16px 40px;
+      font-size: 1.2rem;
+      font-weight: 900;
+      cursor: pointer;
+      box-shadow: 0 8px 0 #00876B, 0 10px 20px rgba(0,0,0,0.2);
+      transition: all 0.2s;
+    }
+
+    .btn-submit:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 11px 0 #00876B, 0 12px 22px rgba(0,0,0,0.25);
+    }
+
+    .btn-submit:active {
+      transform: translateY(3px);
+      box-shadow: 0 4px 0 #00876B;
+    }
+
+    /* Result Modal / Popup */
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+      backdrop-filter: blur(4px);
+    }
+
+    .modal-card {
+      background: #FFFFFF;
+      border-radius: 25px;
+      padding: 25px;
+      width: 90%;
+      max-width: 480px;
+      text-align: center;
+      border: 4px solid #6C5CE7;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+      animation: popUp 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    @keyframes popUp {
+      from { transform: scale(0.7); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .modal-score {
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: #6C5CE7;
+      margin: 10px 0;
+    }
+
+    .modal-msg {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #2D3436;
+      line-height: 1.5;
+      margin-bottom: 20px;
+      background: #F1F2F6;
+      padding: 12px;
+      border-radius: 12px;
+    }
+
+    .btn-close {
+      background: #FF4757;
+      color: white;
+      border: none;
+      border-radius: 14px;
+      padding: 10px 24px;
+      font-size: 1rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 4px 0 #D63031;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Header -->
+  <div class="header-box">
+    <div class="header-title">Giáo viên tạo: Ms Lê Hằng English</div>
+    <div class="ad-banner">
+      📞 Đăng kí học tiếng Anh 1-12, IELTS vui lòng liên hệ Ms Lê Hằng - Zalo: 0584 965 348
+    </div>
+  </div>
+
+  <!-- Alert Banner -->
+  <div class="alert-box">
+    <div class="alert-title">
+      ⚠️ LỜI NHẮC CỰC KỲ QUAN TRỌNG ⚠️
+    </div>
+    <div class="alert-content">
+      Chỉ có đọc kỹ giải thích ngay sau mỗi câu, sau đó ghi lại từ vựng/cấu trúc mới vào vở để học thì mới thực sự giỏi lên.<br>
+      Làm cho xong mà không đọc giải thích hay đọc qua loa không ghi chép thì chỉ tốn thời gian vô ích!<br>
+      <strong>Kéo tới đâu, làm tới đó! *</strong>
+    </div>
+  </div>
+
+  <!-- Quiz Form Container -->
+  <div id="quiz-container"></div>
+
+  <!-- Submit Button -->
+  <div class="submit-section">
+    <button class="btn-submit" onclick="submitQuiz()">NỘP BÀI THI ✨</button>
+  </div>
+</div>
+
+<!-- Modal Popup -->
+<div class="modal-overlay" id="resultModal">
+  <div class="modal-card">
+    <h2>🎉 KẾT QUẢ BÀI THI 🎉</h2>
+    <div class="modal-score" id="modalScore">0 / 40</div>
+    <div class="modal-msg" id="modalMsg"></div>
+    <button class="btn-close" onclick="closeModal()">Đóng & Xem lại bài</button>
+  </div>
+</div>
+
+<script>
+// Web Audio API Sound Effects
+const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+function playSound(type) {
+  if (audioCtx.state === 'suspended') {
+    audioCtx.resume();
+  }
+  const osc = audioCtx.createOscillator();
+  const gain = audioCtx.createGain();
+  osc.connect(gain);
+  gain.connect(audioCtx.destination);
+
+  if (type === 'correct') {
+    // Ding sound
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(523.25, audioCtx.currentTime); // C5
+    osc.frequency.exponentialRampToValueAtTime(1046.50, audioCtx.currentTime + 0.3); // C6
+    gain.gain.setValueAtTime(0.3, audioCtx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.3);
+    osc.start();
+    osc.stop(audioCtx.currentTime + 0.3);
+  } else if (type === 'wrong') {
+    // Teo teo teo sound
+    osc.type = 'sawtooth';
+    osc.frequency.setValueAtTime(250, audioCtx.currentTime);
+    osc.frequency.setValueAtTime(200, audioCtx.currentTime + 0.15);
+    osc.frequency.setValueAtTime(150, audioCtx.currentTime + 0.3);
+    gain.gain.setValueAtTime(0.3, audioCtx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.45);
+    osc.start();
+    osc.stop(audioCtx.currentTime + 0.45);
+  }
+}
+
+// Data set for 40 Questions
+const rawQuestions = [
+  // Phonetics (Q1-Q2)
+  {
+    id: 1,
+    section: "PHONETICS - Pronunciation",
+    q: "Mark the letter A, B, C or D to indicate the word whose underlined part differs from the other three in pronunciation.",
+    displayQ: "Question 1:",
+    options: [
+      { key: 'A', text: "g<u>a</u>me", isCorrect: false },
+      { key: 'B', text: "arr<u>a</u>nge", isCorrect: false },
+      { key: 'C', text: "sk<u>a</u>te", isCorrect: false },
+      { key: 'D', text: "c<u>a</u>ke", isCorrect: false } // Wait, Q1 source: A. game, B. arrange, C. skate, D. cake -> let's check standard key. arrange /əˈreɪndʒ/, game /ɡeɪm/, skate /skeɪt/, cake /keɪk/. Ah wait, arrange has 'a' as /ə/ or /eɪ/? 'a' in arrange is /ə/! So B is /ə/, others /eɪ/.
+    ],
+    correctKey: 'B',
+    exp: `
+      <b>Phân tích phát âm phần gạch chân:</b><br>
+      • A. g<u>a</u>me /ɡeɪm/: âm /eɪ/<br>
+      • B. arr<u>a</u>nge /əˈreɪndʒ/: chữ 'a' đầu tiên phát âm là /ə/<br>
+      • C. sk<u>a</u>te /skeɪt/: âm /eɪ/<br>
+      • D. c<u>a</u>ke /keɪk/: âm /eɪ/<br>
+      <b>1. Dịch nghĩa:</b> game (trò chơi), arrange (sắp xếp), skate (trượt băng), cake (bánh ngọt).<br>
+      <b>2. Tại sao chọn B?</b> Đáp án B phát âm phần gạch chân là âm /ə/, trong khi 3 đáp án còn lại phát âm là /eɪ/.<br>
+      <b>3. Tại sao A, C, D sai?</b> Đều có phần gạch chân chứa nguyên âm đôi /eɪ/.
+    `
+  },
+  {
+    id: 2,
+    section: "PHONETICS - Pronunciation",
+    q: "Mark the letter A, B, C or D to indicate the word whose underlined part differs from the other three in pronunciation.",
+    displayQ: "Question 2:",
+    options: [
+      { key: 'A', text: "clean<u>ed</u>", isCorrect: false },
+      { key: 'B', text: "play<u>ed</u>", isCorrect: false },
+      { key: 'C', text: "gain<u>ed</u>", isCorrect: false },
+      { key: 'D', text: "cook<u>ed</u>", isCorrect: true }
+    ],
+    correctKey: 'D',
+    exp: `
+      <b>Phân tích quy tắc đuôi -ed:</b><br>
+      • A. clean<u>ed</u> /kliːnd/: kết thúc âm /n/ -> phát âm đuôi -ed là /d/<br>
+      • B. play<u>ed</u> /pleɪd/: kết thúc âm nguyên âm /eɪ/ -> phát âm đuôi -ed là /d/<br>
+      • C. gain<u>ed</u> /ɡeɪnd/: kết thúc âm /n/ -> phát âm đuôi -ed là /d/<br>
+      • D. cook<u>ed</u> /kʊkt/: kết thúc âm vô thanh /k/ -> phát âm đuôi -ed là /t/<br>
+      <b>1. Dịch nghĩa:</b> cleaned (dọn dẹp), played (chơi), gained (đạt được), cooked (nấu ăn).<br>
+      <b>2. Tại sao chọn D?</b> Đáp án D phát âm đuôi -ed là /t/, khác với 3 đáp án còn lại phát âm là /d/.<br>
+      <b>3. Tại sao A, B, C sai?</b> Đều tuân theo quy tắc phát âm đuôi -ed thành /d/.
+    `
+  },
+  // Stress (Q3-Q4)
+  {
+    id: 3,
+    section: "PHONETICS - Stress",
+    q: "Mark the letter A, B, C or D to indicate the word that differs from the other three in the position of primary stress.",
+    displayQ: "Question 3:",
+    options: [
+      { key: 'A', text: "cardboard", isCorrect: false },
+      { key: 'B', text: "dollhouse", isCorrect: false },
+      { key: 'C', text: "patient", isCorrect: false },
+      { key: 'D', text: "collect", isCorrect: true }
+    ],
+    correctKey: 'D',
+    exp: `
+      <b>Phân tích trọng âm:</b><br>
+      • A. 'cardboard (n): trọng âm rơi vào âm tiết thứ 1.<br>
+      • B. 'dollhouse (n): trọng âm rơi vào âm tiết thứ 1.<br>
+      • C. 'patient (adj/n): trọng âm rơi vào âm tiết thứ 1.<br>
+      • D. col'lect (v): trọng âm rơi vào âm tiết thứ 2.<br>
+      <b>1. Dịch nghĩa:</b> cardboard (bìa cứng), dollhouse (nhà búp bê), patient (kiên nhẫn/bệnh nhân), collect (thu gom, sưu tầm).<br>
+      <b>2. Tại sao chọn D?</b> Trọng âm rơi vào âm tiết 2, khác với A, B, C rơi vào âm tiết 1.<br>
+      <b>3. Tại sao A, B, C sai?</b> Đều có trọng âm ở âm tiết thứ nhất.
+    `
+  },
+  {
+    id: 4,
+    section: "PHONETICS - Stress",
+    q: "Mark the letter A, B, C or D to indicate the word that differs from the other three in the position of primary stress.",
+    displayQ: "Question 4:",
+    options: [
+      { key: 'A', text: "orphanage", isCorrect: false },
+      { key: 'B', text: "vitamin", isCorrect: false },
+      { key: 'C', text: "unusual", isCorrect: true },
+      { key: 'D', text: "benefit", isCorrect: false }
+    ],
+    correctKey: 'C',
+    exp: `
+      <b>Phân tích trọng âm:</b><br>
+      • A. 'orphanage (n): trọng âm rơi vào âm tiết thứ 1.<br>
+      • B. 'vitamin (n): trọng âm rơi vào âm tiết thứ 1.<br>
+      • C. un'usual (adj): trọng âm rơi vào âm tiết thứ 2.<br>
+      • D. 'benefit (n/v): trọng âm rơi vào âm tiết thứ 1.<br>
+      <b>1. Dịch nghĩa:</b> orphanage (trại trẻ mồ côi), vitamin (vitamin), unusual (bất thường, khác lạ), benefit (Lợi ích).<br>
+      <b>2. Tại sao chọn C?</b> Đáp án C có trọng âm 2, trong khi 3 từ còn lại có trọng âm 1.<br>
+      <b>3. Tại sao A, B, D sai?</b> Đều có trọng âm ở âm tiết thứ nhất.
+    `
+  },
+  // Multiple Choice (Q5-Q12)
+  {
+    id: 5,
+    section: "VOCABULARY & GRAMMAR",
+    q: "My sister _______ to pop music every day.",
+    displayQ: "Question 5:",
+    options: [
+      { key: 'A', text: "to listen", isCorrect: false },
+      { key: 'B', text: "listens", isCorrect: true },
+      { key: 'C', text: "listen", isCorrect: false },
+      { key: 'D', text: "listening", isCorrect: false }
+    ],
+    correctKey: 'B',
+    exp: `
+      <b>Phân tích 4 đáp án:</b><br>
+      • A. to listen: dạng động词 nguyên thể có 'to'.<br>
+      • B. listens: động từ chia thì Hiện tại đơn cho chủ ngữ số ít.<br>
+      • C. listen: động từ nguyên thể chia chủ ngữ số nhiều.<br>
+      • D. listening: dạng V-ing.<br>
+      <b>1. Dịch nghĩa toàn câu:</b> "Chị gái tôi nghe nhạc pop mỗi ngày."<br>
+      <b>2. Tại sao chọn B?</b> Dấu hiệu "every day" chia thì Hiện tại đơn (Present Simple). Chủ ngữ "My sister" là số ít (ngôi thứ 3 số ít) nên động từ thêm 's' -> "listens".<br>
+      <b>3. Tại sao A, C, D sai?</b> A và D không đúng ngữ pháp thì hiện tại đơn; C sai do chưa chia động từ cho chủ ngữ số ít.
+    `
+  },
+  {
+    id: 6,
+    section: "VOCABULARY & GRAMMAR",
+    q: "It is _____ to eat so much junk food.",
+    displayQ: "Question 6:",
+    options: [
+      { key: 'A', text: "healthy", isCorrect: false },
+      { key: 'B', text: "unhealthy", isCorrect: true },
+      { key: 'C', text: "healthful", isCorrect: false },
+      { key: 'D', text: "health", isCorrect: false }
+    ],
+    correctKey: 'B',
+    exp: `
+      <b>Phân tích từ vựng 4 đáp án:</b><br>
+      • A. healthy (adj): lành mạnh, tốt cho sức khỏe.<br>
+      • B. unhealthy (adj): không lành mạnh, có hại cho sức khỏe.<br>
+      • C. healthful (adj): bổ dưỡng (ít dùng trong ngữ cảnh này).<br>
+      • D. health (n): sức khỏe.<br>
+      <b>1. Dịch nghĩa toàn câu:</b> "Ăn quá nhiều đồ ăn nhanh thì không lành mạnh/có hại cho sức khỏe."<br>
+      <b>2. Tại sao chọn B?</b> Cấu trúc "It is + adj + to V". Ăn đồ ăn nhanh (junk food) mang tính chất tiêu cực nên chọn tính từ "unhealthy".<br>
+      <b>3. Tại sao A, C, D sai?</b> A trái ngược nghĩa; C không phù hợp ngữ cảnh; D là danh từ, sai cấu trúc ngữ pháp.
+    `
+  },
+  {
+    id: 7,
+    section: "VOCABULARY & GRAMMAR",
+    q: "A lot of people _______things such as dolls, stamps or bottles.",
+    displayQ: "Question 7:",
+    options: [
+      { key: 'A', text: "enjoy to collect", isCorrect: false },
+      { key: 'B', text: "enjoy collected", isCorrect: false },
+      { key: 'C', text: "enjoy collects", isCorrect: false },
+      { key: 'D', text: "enjoy collecting", isCorrect: true }
+    ],
+    correctKey: 'D',
+    exp: `
+      <b>Phân tích cấu trúc ngữ pháp:</b><br>
+      • Sau động từ <b>enjoy</b> + V-ing (yêu thích làm việc gì đó).<br>
+      <b>1. Dịch nghĩa toàn câu:</b> "Rất nhiều người thích sưu tầm những thứ như búp bê, tem hoặc chai lọ."<br>
+      <b>2. Tại sao chọn D?</b> Đúng cấu trúc "enjoy + V-ing" (enjoy collecting).<br>
+      <b>3. Tại sao A, B, C sai?</b> Sai cấu trúc đi kèm với động từ 'enjoy'.
+    `
+  },
+  {
+    id: 8,
+    section: "VOCABULARY & GRAMMAR",
+    q: "Minh and Nam are talking about hobbies.<br>Minh: ‘I think model making is an expensive hobby.’<br>Nam: ‘________ . It’s incredibly cheap.’",
+    displayQ: "Question 8:",
+    options: [
+      { key: 'A', text: "You’re right", isCorrect: false },
+      { key: 'B', text: "Certainly", isCorrect: false },
+      { key: 'C', text: "No matter", isCorrect: false },
+      { key: 'D', text: "Not at all", isCorrect: true }
+    ],
+    correctKey: 'D',
+    exp: `
+      <b>Phân tích giao tiếp:</b><br>
+      • A. You’re right: Bạn đúng rồi.<br>
+      • B. Certainly: Chắc chắn rồi.<br>
+      • C. No matter: Không sao đâu.<br>
+      • D. Not at all: Không hề/Không đúng đâu chút nào.<br>
+      <b>1. Dịch nghĩa cuộc hội thoại:</b><br>
+      - Minh: "Tớ nghĩ làm mô hình là một sở thích đắt đỏ."<br>
+      - Nam: "Không hề. Nó cực kỳ rẻ luôn."<br>
+      <b>2. Tại sao chọn D?</b> Nam bác bỏ ý kiến của Minh và đưa ra giải thích "It's incredibly cheap" (Nó vô cùng rẻ) -> Phản bác bằng "Not at all".<br>
+      <b>3. Tại sao A, B, C sai?</b> A và B biểu thị sự đồng ý (mâu thuẫn vế sau); C dùng sai ngữ cảnh giao tiếp.
+    `
+  },
+  {
+    id: 9,
+    section: "VOCABULARY & GRAMMAR",
+    q: "I ________a glass of milk 20 minutes ago.",
+    displayQ: "Question 9:",
+    options: [
+      { key: 'A', text: "drink", isCorrect: false },
+      { key: 'B', text: "drunk", isCorrect: false },
+      { key: 'C', text: "drank", isCorrect: true },
+      { key: 'D', text: "drinking", isCorrect: false }
+    ],
+    correctKey: 'C',
+    exp: `
+      <b>Phân tích thì động từ:</b><br>
+      • Dấu hiệu <b>20 minutes ago</b> (20 phút trước) -> Thì Quá khứ đơn (Past Simple).<br>
+      • Biến thể động từ: drink (V1) -> drank (V2) -> drunk (V3).<br>
+      <b>1. Dịch nghĩa toàn câu:</b> "Tôi đã uống một ly sữa 20 phút trước."<br>
+      <b>2. Tại sao chọn C?</b> Động từ ở quá khứ đơn (V2) của 'drink' là 'drank'.<br>
+      <b>3. Tại sao A, B, D sai?</b> A ở hiện tại đơn; B là phân từ 2 (V3); D là dạng V-ing.
+    `
+  },
+  {
+    id: 10,
+    section: "VOCABULARY & GRAMMAR",
+    q: "The ________ are children who don’t have their own houses to live in.",
+    displayQ: "Question 10:",
+    options: [
+      { key: 'A', text: "young children", isCorrect: false },
+      { key: 'B', text: "street children", isCorrect: true },
+      { key: 'C', text: "rich children", isCorrect: false },
+      { key: 'D', text: "weak children", isCorrect: false }
+    ],
+    correctKey: 'B',
+    exp: `
+      <b>Phân tích cụm từ vựng:</b><br>
+      • A. young children: trẻ nhỏ.<br>
+      • B. street children: trẻ em đường phố, trẻ lang thang.<br>
+      • C. rich children: trẻ em giàu có.<br>
+      • D. weak children: trẻ em yếu ớt.<br>
+      <b>1. Dịch nghĩa toàn câu:</b> "Trẻ em đường phố là những đứa trẻ không có nhà riêng để ở."<br>
+      <b>2. Tại sao chọn B?</b> Vế sau mô tả "don't have their own houses to live in" định nghĩa chính xác cho "street children".<br>
+      <b>3. Tại sao A, C, D sai?</b> Không phù hợp định nghĩa về trẻ em không có nhà ở.
+    `
+  },
+  {
+    id: 11,
+    section: "VOCABULARY & GRAMMAR",
+    q: "It is interesting to _______ tree leaves from different countries.",
+    displayQ: "Question 11:",
+    options: [
+      { key: 'A', text: "play", isCorrect: false },
+      { key: 'B', text: "collect", isCorrect: true },
+      { key: 'C', text: "read", isCorrect: false },
+      { key: 'D', text: "do", isCorrect: false }
+    ],
+    correctKey: 'B',
+    exp: `
+      <b>Phân tích động từ:</b><br>
+      • A. play (v): chơi.<br>
+      • B. collect (v): sưu tầm, thu thập.<br>
+      • C. read (v): đọc.<br>
+      • D. do (v): làm.<br>
+      <b>1. Dịch nghĩa toàn câu:</b> "Thật thú vị khi sưu tầm lá cây từ các quốc gia khác nhau."<br>
+      <b>2. Tại sao chọn B?</b> Cụm "collect tree leaves" (sưu tầm lá cây) hợp lý về ý nghĩa.<br>
+      <b>3. Tại sao A, C, D sai?</b> Không kết hợp tự nhiên với "tree leaves".
+    `
+  },
+  {
+    id: 12,
+    section: "VOCABULARY & GRAMMAR",
+    q: "You shouldn’t go _______if you can’t swim.",
+    displayQ: "Question 12:",
+    options: [
+      { key: 'A', text: "skating", isCorrect: false },
+      { key: 'B', text: "board game", isCorrect: false },
+      { key: 'C', text: "gallery", isCorrect: false },
+      { key: 'D', text: "surfing", isCorrect: true }
+    ],
+    correctKey: 'D',
+    exp: `
+      <b>Phân tích từ vựng:</b><br>
+      • A. skating (n): trượt băng.<br>
+      • B. board game (n): trò chơi bàn cờ.<br>
+      • C. gallery (n): phòng triển lãm.<br>
+      • D. surfing (n): lướt sóng.<br>
+      <b>1. Dịch nghĩa toàn câu:</b> "Bạn không nên đi lướt sóng nếu bạn không biết bơi."<br>
+      <b>2. Tại sao chọn D?</b> Lướt sóng (surfing) là môn thể thao dưới nước, yêu cầu phải biết bơi (can't swim). Cấu trúc "go surfing".<br>
+      <b>3. Tại sao A, B, C sai?</b> Skating không dưới nước; B và C không đi với "go" theo nghĩa thể thao dưới nước.
+    `
+  },
+  // Announcement Cloze (Q13-Q16)
+  {
+    id: 13,
+    section: "HEALTHY EATING ANNOUNCEMENT",
+    q: "Include fruits and vegetables (13) _______ every meal.",
+    displayQ: "Question 13:",
+    options: [
+      { key: 'A', text: "at", isCorrect: true },
+      { key: 'B', text: "in", isCorrect: false },
+      { key: 'C', text: "to", isCorrect: false },
+      { key: 'D', text: "about", isCorrect: false }
+    ],
+    correctKey: 'A',
+    exp: `
+      <b>Phân tích giới từ:</b><br>
+      • Đi với từ "meal" (bữa ăn), ta dùng giới từ <b>at</b> -> <b>at every meal</b> (vào mỗi bữa ăn).<br>
+      <b>1. Dịch nghĩa toàn câu:</b> "Bổ sung trái cây và rau củ vào mỗi bữa ăn."<br>
+      <b>2. Tại sao chọn A?</b> Đúng kết hợp giới từ "at every meal".<br>
+      <b>3. Tại sao B, C, D sai?</b> Không dùng "in every meal" hay "to/about every meal" trong ngữ cảnh này.
+    `
+  },
+  {
+    id: 14,
+    section: "HEALTHY EATING ANNOUNCEMENT",
+    q: "Avoid (14)_______ too much sugar and salt.",
+    displayQ: "Question 14:",
+    options: [
+      { key: 'A', text: "eating", isCorrect: true },
+      { key: 'B', text: "to eat", isCorrect: false },
+      { key: 'C', text: "ate", isCorrect: false },
+      { key: 'D', text: "eat", isCorrect: false }
+    ],
+    correctKey: 'A',
+    exp: `
+      <b>Phân tích cấu trúc:</b><br>
+      • Sau động từ <b>avoid</b> + V-ing (Tránh làm việc gì).<br>
+      <b>1. Dịch nghĩa toàn câu:</b> "Tránh ăn quá nhiều đường và muối."<br>
+      <b>2. Tại sao chọn A?</b> "eating" phù hợp công thức Avoid + V-ing.<br>
+      <b>3. Tại sao B, C, D sai?</b> B (to V), C (V2), D (V_bare) đều sai ngữ pháp sau avoid.
+    `
+  },
+  {
+    id: 15,
+    section: "HEALTHY EATING ANNOUNCEMENT",
+    q: "(15) _______ your meals in small portions throughout the day.",
+    displayQ: "Question 15:",
+    options: [
+      { key: 'A', text: "Plan", isCorrect: true },
+      { key: 'B', text: "Prepare", isCorrect: false },
+      { key: 'C', text: "Consume", isCorrect: false },
+      { key: 'D', text: "Serve", isCorrect: false }
+    ],
+    correctKey: 'A',
+    exp: `
+      <b>Phân tích động từ:</b><br>
+      • A. Plan (v): Lên kế hoạch.<br>
+      • B. Prepare (v): Chuẩn bị.<br>
+      • C. Consume (v): Tiêu thụ.<br>
+      • D. Serve (v): Phục vụ.<br>
+      <b>1. Dịch nghĩa toàn câu:</b> "Hãy lên kế hoạch cho các bữa ăn của bạn thành từng phần nhỏ trong suốt cả ngày."<br>
+      <b>2. Tại sao chọn A?</b> "Plan meals in small portions" nghĩa là chủ động lên kế hoạch chia nhỏ bữa ăn để đảm bảo sức khỏe.<br>
+      <b>3. Tại sao B, C, D sai?</b> Không đi hợp lý với sắc thái khuyên chia khẩu phần ăn trong suốt cả ngày.
+    `
+  },
+  {
+    id: 16,
+    section: "HEALTHY EATING ANNOUNCEMENT",
+    q: "If you feel (16) _______, consult a doctor.",
+    displayQ: "Question 16:",
+    options: [
+      { key: 'A', text: "healthy", isCorrect: false },
+      { key: 'B', text: "healthily", isCorrect: false },
+      { key: 'C', text: "unhealthy", isCorrect: true },
+      { key: 'D', text: "healthier", isCorrect: false }
+    ],
+    correctKey: 'C',
+    exp: `
+      <b>Phân tích từ loại & ý nghĩa:</b><br>
+      • Sau động từ nối <b>feel</b> + Tính từ (Adj).<br>
+      • A. healthy (adj): khỏe mạnh.<br>
+      • B. healthily (adv): một cách khỏe mạnh.<br>
+      • C. unhealthy (adj): không khỏe, mệt mỏi.<br>
+      • D. healthier (adj so sánh hơn).<br>
+      <b>1. Dịch nghĩa toàn câu:</b> "Nếu bạn cảm thấy không khỏe, hãy tham khảo ý kiến bác sĩ."<br>
+      <b>2. Tại sao chọn C?</b> Khi không khỏe (unhealthy/unwell) thì mới cần gặp bác sĩ.<br>
+      <b>3. Tại sao A, B, D sai?</b> A trái nghĩa; B là trạng từ; D dạng so sánh không cần thiết.
+    `
+  },
+  // Sentence Ordering (Q17-Q18)
+  {
+    id: 17,
+    section: "TEXT ORDERING & PARAGRAPH BUILDING",
+    q: "Put the sentences (a-c) in the correct order, then fill in the blank to make a logical text.<br><i>Walt Disney was born in Chicago in 1901. When he was young, he liked drawing. ___________.</i><br>a. He became a very successful film maker, who created Mickey Mouse.<br>b. He attended Brenton Grammar School, but he left school when he was 16.<br>c. Throughout his career, Disney won or received 26 Oscars.",
+    displayQ: "Question 17:",
+    options: [
+      { key: 'A', text: "b – a - c", isCorrect: true },
+      { key: 'B', text: "c - b - a", isCorrect: false },
+      { key: 'C', text: "b - c - a", isCorrect: false },
+      { key: 'D', text: "a - c - b", isCorrect: false }
+    ],
+    correctKey: 'A',
+    exp: `
+      <b>Phân tích trình tự thời gian & logic tiểu sử:</b><br>
+      • Đầu bài: Mới sinh năm 1901 và khi còn nhỏ thích vẽ.<br>
+      • Tiếp theo (b): Việc đi học lúc nhỏ -> 'He attended Brenton Grammar School, left school when he was 16'.<br>
+      • Tiếp theo (a): Trưởng thành và thành công -> 'He became a very successful film maker, created Mickey Mouse'.<br>
+      • Sau cùng (c): Tổng kết sự nghiệp cả đời -> 'Throughout his career, Disney won 26 Oscars'.<br>
+      <b>1. Dịch nghĩa đoạn văn hoàn chỉnh:</b> "Walt Disney sinh ra ở Chicago năm 1901. Khi còn trẻ, ông thích vẽ. Ông đã học tại Trường Brenton Grammar, nhưng ông rời trường khi 16 tuổi. Ông đã trở thành một nhà làm phim rất thành công, người đã tạo ra Chuột Mickey. Trong suốt sự nghiệp của mình, Disney đã giành được 26 giải Oscar."<br>
+      <b>2. Tại sao chọn A?</b> Đúng trình tự thời gian b -> a -> c.<br>
+      <b>3. Tại sao B, C, D sai?</b> Xáo trộn trình tự logic lịch sử cuộc đời.
+    `
+  },
+  {
+    id: 18,
+    section: "TEXT ORDERING & PARAGRAPH BUILDING",
+    q: "Choose the sentence that can end the text (in Question 17) most appropriately.",
+    displayQ: "Question 18:",
+    options: [
+      { key: 'A', text: "Finally, he wanted to build a theme park.", isCorrect: false },
+      { key: 'B', text: "Nowadays, his first theme park in the world, called Disneyland, has become a system worldwide.", isCorrect: true },
+      { key: 'C', text: "Disneyland is the largest park in the world.", isCorrect: false },
+      { key: 'D', text: "We want to visit the Disneyland park.", isCorrect: false }
+    ],
+    correctKey: 'B',
+    exp: `
+      <b>Phân tích câu kết đoạn (Concluding sentence):</b><br>
+      <b>1. Dịch nghĩa các đáp án:</b><br>
+      • A. Cuối cùng, ông muốn xây dựng một công viên giải trí.<br>
+      • B. Ngày nay, công viên giải trí đầu tiên của ông trên thế giới, gọi là Disneyland, đã trở thành một hệ thống trên toàn thế giới.<br>
+      • C. Disneyland là công viên lớn nhất thế giới.<br>
+      • D. Chúng tôi muốn ghé thăm công viên Disneyland.<br>
+      <b>2. Tại sao chọn B?</b> Câu kết đoạn tiểu sử mang tầm vóc lịch sử thường mở rộng đến tầm ảnh hưởng hiện nay ("Nowadays... worldwide").<br>
+      <b>3. Tại sao A, C, D sai?</b> A cụt ý; C chưa chính xác thực tế; D đột ngột chuyển sang ngôi "We" cá nhân không khớp văn phong tiểu sử.
+    `
+  },
+  // Passage Reading (Q19-Q24)
+  {
+    id: 19,
+    section: "READING CLOZE PASSAGE",
+    q: "Living a healthy lifestyle is important for teens, and it’s something everyone should focus (19)__________.",
+    displayQ: "Question 19:",
+    options: [
+      { key: 'A', text: "in", isCorrect: false },
+      { key: 'B', text: "on", isCorrect: true },
+      { key: 'C', text: "about", isCorrect: false },
+      { key: 'D', text: "at", isCorrect: false }
+    ],
+    correctKey: 'B',
+    exp: `
+      <b>Phân tích cụm động từ:</b><br>
+      • Cấu trúc: <b>focus on sth</b> (tập trung vào cái gì).<br>
+      <b>1. Dịch nghĩa toàn câu:</b> "Lối sống lành mạnh rất quan trọng với thanh thiếu niên, và đó là điều mọi người nên tập trung vào."<br>
+      <b>2. Tại sao chọn B?</b> Giới từ 'on' đi với động từ 'focus'.<br>
+      <b>3. Tại sao A, C, D sai?</b> Không đi với focus.
+    `
+  },
+  {
+    id: 20,
+    section: "READING CLOZE PASSAGE",
+    q: "My favourite nutritionist once said: “Teens should be more aware of what they eat, (20)______ they could make healthier choices”.",
+    displayQ: "Question 20:",
+    options: [
+      { key: 'A', text: "or", isCorrect: false },
+      { key: 'B', text: "so", isCorrect: true },
+      { key: 'C', text: "but", isCorrect: false },
+      { key: 'D', text: "although", isCorrect: false }
+    ],
+    correctKey: 'B',
+    exp: `
+      <b>Phân tích liên từ:</b><br>
+      • A. or: hoặc.<br>
+      • B. so: vì vậy, để mà (chỉ kết quả/mục đích).<br>
+      • C. but: nhưng (chỉ sự đối lập).<br>
+      • D. although: mặc dù.<br>
+      <b>1. Dịch nghĩa toàn câu:</b> "Chuyên gia dinh dưỡng yêu thích của tôi từng nói: 'Thanh thiếu niên nên nhận thức rõ hơn về những gì họ ăn, vì vậy/để họ có thể đưa ra những lựa chọn lành mạnh hơn'."<br>
+      <b>2. Tại sao chọn B?</b> Vế sau chỉ kết quả của việc "aware of what they eat" -> Dùng 'so'.<br>
+      <b>3. Tại sao A, C, D sai?</b> Sai mối quan hệ logic giữa 2 mệnh đề.
+    `
+  },
+  {
+    id: 21,
+    section: "READING CLOZE PASSAGE",
+    q: "She added that teens often eat too (21)______ which is not good for their health.",
+    displayQ: "Question 21:",
+    options: [
+      { key: 'A', text: "many fast food,", isCorrect: false },
+      { key: 'B', text: "few fast food,", isCorrect: false },
+      { key: 'C', text: "much fast food,", isCorrect: true },
+      { key: 'D', text: "little fast food,", isCorrect: false }
+    ],
+    correctKey: 'C',
+    exp: `
+      <b>Phân tích từ chỉ số lượng:</b><br>
+      • "Fast food" (đồ ăn nhanh) là danh từ không đếm được.<br>
+      • Với danh từ không đếm được, dùng <b>much</b> (nhiều) hoặc <b>little</b> (ít).<br>
+      • Ngữ cảnh câu: "which is not good for health" (điều đó không tốt cho sức khỏe) -> Nghĩa là ăn <b>quá nhiều</b> đồ ăn nhanh.<br>
+      <b>1. Dịch nghĩa toàn câu:</b> "Bà nói thêm rằng thanh thiếu niên thường ăn quá nhiều đồ ăn nhanh, điều này không tốt cho sức khỏe của họ."<br>
+      <b>2. Tại sao chọn C?</b> "too much fast food" đúng cả ngữ pháp và ngữ cảnh tiêu cực.<br>
+      <b>3. Tại sao A, B, D sai?</b> A & B dùng many/few cho danh từ đếm được; D (little) ngược nghĩa ngữ cảnh.
+    `
+  },
+  {
+    id: 22,
+    section: "READING CLOZE PASSAGE",
+    q: "The nutritionist explained that teens should eat more fruits and vegetables, which are full of vitamins to help the body stay (22) ________.",
+    displayQ: "Question 22:",
+    options: [
+      { key: 'A', text: "strongly", isCorrect: false },
+      { key: 'B', text: "strengthen", isCorrect: false },
+      { key: 'C', text: "strength", isCorrect: false },
+      { key: 'D', text: "strong", isCorrect: true }
+    ],
+    correctKey: 'D',
+    exp: `
+      <b>Phân tích từ loại:</b><br>
+      • Cấu trúc: <b>stay + Adj</b> (giữ cho cơ thể như thế nào/khỏe mạnh).<br>
+      • A. strongly (adv): một cách mạnh mẽ.<br>
+      • B. strengthen (v): củng cố, làm mạnh.<br>
+      • C. strength (n): sức mạnh.<br>
+      • D. strong (adj): khỏe mạnh.<br>
+      <b>1. Dịch nghĩa toàn câu:</b> "Chuyên gia dinh dưỡng giải thích rằng thanh thiếu niên nên ăn nhiều trái cây và rau củ, những thứ chứa đầy vitamin để giúp cơ thể luôn khỏe mạnh."<br>
+      <b>2. Tại sao chọn D?</b> 'strong' là tính từ đi sau động từ stay.<br>
+      <b>3. Tại sao A, B, C sai?</b> Sai từ loại theo yêu cầu cấu trúc "stay + adj".
+    `
+  },
+  {
+    id: 23,
+    section: "READING CLOZE PASSAGE",
+    q: "She believes that the more teens learn about (23) __________, the better their overall health will be.",
+    displayQ: "Question 23:",
+    options: [
+      { key: 'A', text: "healthy living", isCorrect: true },
+      { key: 'B', text: "healthy live", isCorrect: false },
+      { key: 'C', text: "living health", isCorrect: false },
+      { key: 'D', text: "lived healthy", isCorrect: false }
+    ],
+    correctKey: 'A',
+    exp: `
+      <b>Phân tích danh từ ghép / cụm danh từ:</b><br>
+      • Sau giới từ "about" cần một danh từ hoặc cụm danh từ.<br>
+      • <b>healthy living</b> (lối sống lành mạnh / việc sống khỏe mạnh) - 'living' đóng vai trò danh động từ.<br>
+      <b>1. Dịch nghĩa toàn câu:</b> "Bà tin rằng thanh thiếu niên càng học nhiều về lối sống lành mạnh, thì sức khỏe tổng thể của họ càng tốt hơn."<br>
+      <b>2. Tại sao chọn A?</b> Đúng cụm danh từ chuẩn tiếng Anh "healthy living".<br>
+      <b>3. Tại sao B, C, D sai?</b> Sai kết hợp ngữ pháp từ vựng.
+    `
+  },
+  {
+    id: 24,
+    section: "READING CLOZE PASSAGE",
+    q: "She also mentioned, \"I wish teenagers always started (24)__________ day with a good breakfast.\"",
+    displayQ: "Question 24:",
+    options: [
+      { key: 'A', text: "my", isCorrect: false },
+      { key: 'B', text: "their", isCorrect: true },
+      { key: 'C', text: "they", isCorrect: false },
+      { key: 'D', text: "her", isCorrect: false }
+    ],
+    correctKey: 'B',
+    exp: `
+      <b>Phân tích tính từ sở hữu:</b><br>
+      • Danh từ làm chủ ngữ là "teenagers" (số nhiều) -> Tính từ sở hữu tương ứng là <b>their</b> (của họ).<br>
+      <b>1. Dịch nghĩa toàn câu:</b> "Bà cũng đề cập: 'Tôi ước thanh thiếu niên luôn bắt đầu ngày mới của họ với một bữa sáng bổ dưỡng'."<br>
+      <b>2. Tại sao chọn B?</b> 'their' thay thế sở hữu cho 'teenagers'.<br>
+      <b>3. Tại sao A, C, D sai?</b> A (của tôi), C (họ - đại từ nhân xưng), D (của cô ấy) đều không phù hợp.
+    `
+  },
+  // Sentence Transformation (Q25-Q26)
+  {
+    id: 25,
+    section: "SENTENCE TRANSFORMATION",
+    q: "Mark the letter A, B, C or D to indicate the sentence that is CLOSEST in meaning to the original sentence.<br><b>Sentence: It’s not good for us to eat junk food every day.</b>",
+    displayQ: "Question 25:",
+    options: [
+      { key: 'A', text: "We shouldn’t eat junk food every day.", isCorrect: true },
+      { key: 'B', text: "We should eat junk food every day.", isCorrect: false },
+      { key: 'C', text: "We shouldn’t to eat junk food every day.", isCorrect: false },
+      { key: 'D', text: "We should eating junk food every day.", isCorrect: false }
+    ],
+    correctKey: 'A',
+    exp: `
+      <b>Phân tích cấu trúc đồng nghĩa:</b><br>
+      • Câu gốc: "It's not good for us to..." (Thật không tốt cho chúng ta khi...) = Chúng ta không nên... (We shouldn't + V_bare).<br>
+      <b>1. Dịch nghĩa:</b> "Chúng ta không nên ăn đồ ăn nhanh mỗi ngày."<br>
+      <b>2. Tại sao chọn A?</b> A diễn đạt chính xác lời khuyên tiêu cực đúng ngữ pháp "shouldn't + eat".<br>
+      <b>3. Tại sao B, C, D sai?</b> B ngược nghĩa; C sai ngữ pháp (shouldn't + to V); D sai ngữ pháp (should + V-ing).
+    `
+  },
+  {
+    id: 26,
+    section: "SENTENCE TRANSFORMATION",
+    q: "Mark the letter A, B, C or D to indicate the sentence that is CLOSEST in meaning to the original sentence.<br><b>Sentence: Let's join in volunteer activities at school.</b>",
+    displayQ: "Question 26:",
+    options: [
+      { key: 'A', text: "Why don’t you to join in volunteer activities at school.", isCorrect: false },
+      { key: 'B', text: "How about joining in volunteer activities at school?", isCorrect: true },
+      { key: 'C', text: "Let’s to join in volunteer activities at school.", isCorrect: false },
+      { key: 'D', text: "Why don’t us join in volunteer activities at school?", isCorrect: false }
+    ],
+    correctKey: 'B',
+    exp: `
+      <b>Phân tích cấu trúc gợi ý (Suggestions):</b><br>
+      • <b>Let's + V_bare</b> = <b>How about + V-ing?</b> = <b>Why don't we + V_bare?</b><br>
+      <b>1. Dịch nghĩa:</b> "Hay là chúng ta tham gia vào các hoạt động tình nguyện ở trường đi?"<br>
+      <b>2. Tại sao chọn B?</b> Đúng cấu trúc gợi ý "How about + joining...?"<br>
+      <b>3. Tại sao A, C, D sai?</b> A thừa 'to'; C thừa 'to' sau Let's; D dùng sai đại từ 'us' (phải là 'we').
+    `
+  },
+  // Sentence Building (Q27-Q28)
+  {
+    id: 27,
+    section: "SENTENCE BUILDING",
+    q: "Mark the letter A, B, C or D to indicate the sentence that is made from the given cues.<br><b>Cues: Where / you/ your sister/ go/ last Sunday/?</b>",
+    displayQ: "Question 27:",
+    options: [
+      { key: 'A', text: "Where does you and your sister go last Sunday?", isCorrect: false },
+      { key: 'B', text: "Where do you and your sister go last Sunday?", isCorrect: false },
+      { key: 'C', text: "Where did you and your sister go last Sunday?", isCorrect: true },
+      { key: 'D', text: "Where are you and your sister go last Sunday?", isCorrect: false }
+    ],
+    correctKey: 'C',
+    exp: `
+      <b>Phân tích thì & trợ động từ:</b><br>
+      • Dấu hiệu "last Sunday" (Chủ nhật tuần trước) -> Thì Quá khứ đơn.<br>
+      • Cấu trúc câu hỏi nghi vấn Quá khứ đơn: <b>Where + did + S + V_bare...?</b><br>
+      • Chủ ngữ gồm 2 người: "you and your sister".<br>
+      <b>1. Dịch nghĩa:</b> "Bạn và chị/em gái của bạn đã đi đâu vào Chủ nhật tuần trước?"<br>
+      <b>2. Tại sao chọn C?</b> Dùng trợ động từ "did" chính xác cho thời điểm quá khứ.<br>
+      <b>3. Tại sao A, B, D sai?</b> A, B dùng trợ động từ hiện tại (does/do); D dùng tobe 'are' với động từ thường 'go'.
+    `
+  },
+  {
+    id: 28,
+    section: "SENTENCE BUILDING",
+    q: "Mark the letter A, B, C or D to indicate the sentence that is made from the given cues.<br><b>Cues: She/ interested/ collect /coins.</b>",
+    displayQ: "Question 28:",
+    options: [
+      { key: 'A', text: "She is interested at collecting coins.", isCorrect: false },
+      { key: 'B', text: "She is interested to collecting coins.", isCorrect: false },
+      { key: 'C', text: "She is interested on collecting coins.", isCorrect: false },
+      { key: 'D', text: "She is interested in collecting coins.", isCorrect: true }
+    ],
+    correctKey: 'D',
+    exp: `
+      <b>Phân tích cấu trúc tính từ đi kèm giới từ:</b><br>
+      • Cấu trúc cố định: <b>be interested in + V-ing / Noun</b> (thích/quan tâm đến việc gì).<br>
+      <b>1. Dịch nghĩa:</b> "Cô ấy thích sưu tầm tiền xu."<br>
+      <b>2. Tại sao chọn D?</b> Giới từ đúng đi với 'interested' luôn luôn là 'in'.<br>
+      <b>3. Tại sao A, B, C sai?</b> Dùng sai giới từ (at, to, on).
+    `
+  },
+  // Signs and Notices (Q29-Q30)
+  {
+    id: 29,
+    section: "SIGNS & NOTICES",
+    q: "Read the sign and mark the correct answer.<br><div class='sign-no-littering'><span class='trash-icon'>🗑️</span></div><b>What does the sign say?</b>",
+    displayQ: "Question 29:",
+    options: [
+      { key: 'A', text: "Littering is prohibited here.", isCorrect: true },
+      { key: 'B', text: "You can litter here.", isCorrect: false },
+      { key: 'C', text: "You shouldn’t litter here.", isCorrect: false },
+      { key: 'D', text: "Littering is allowed here.", isCorrect: false }
+    ],
+    correctKey: 'A',
+    exp: `
+      <b>Phân tích biển báo:</b><br>
+      • Hình ảnh biển cấm (vòng tròn đỏ gạch chéo) có thùng rác -> Biển Cấm xả rác (No Littering).<br>
+      • Từ vựng: <b>prohibited</b> (adj) = bị cấm.<br>
+      <b>1. Dịch nghĩa 4 đáp án:</b><br>
+      - A. Xả rác bị cấm ở đây.<br>
+      - B. Bạn có thể xả rác ở đây.<br>
+      - C. Bạn không nên xả rác ở đây (chưa đủ độ bắt buộc của biển cấm).<br>
+      - D. Việc xả rác được cho phép ở đây.<br>
+      <b>2. Tại sao chọn A?</b> Biển báo có hình tròn đỏ đường gạch chéo mang tính chất luật cấm triệt để ("prohibited").<br>
+      <b>3. Tại sao B, C, D sai?</b> B & D ngược nghĩa; C là lời khuyên nhẹ nhàng, không đúng tính chất pháp lý của biển cấm.
+    `
+  },
+  {
+    id: 30,
+    section: "SIGNS & NOTICES",
+    q: "Read the notice and mark the correct answer.<br><div class='phone-notice-card'><div class='phone-screen'><div class='phone-header'>📩 MESSAGE NOTICE</div><div class='msg-bubble'>Reminder: Team Meeting has been moved to Monday at 9:30 a.m. (instead of Tuesday morning).</div></div></div><b>What does the notice say?</b>",
+    displayQ: "Question 30:",
+    options: [
+      { key: 'A', text: "The meeting is on Monday at 9.30 a.m.", isCorrect: true },
+      { key: 'B', text: "The meeting doesn't usually start at 9.30 a.m.", isCorrect: false },
+      { key: 'C', text: "There is a meeting every Tuesday morning.", isCorrect: false },
+      { key: 'D', text: "There are meetings on both Monday and Tuesday morning.", isCorrect: false }
+    ],
+    correctKey: 'A',
+    exp: `
+      <b>Phân tích thông báo tin nhắn:</b><br>
+      • Nội dung: "Reminder: Team Meeting has been moved to Monday at 9:30 a.m. (instead of Tuesday morning)" -> Lịch họp team đã đổi sang Thứ Hai lúc 9:30 sáng (thay vì sáng Thứ Ba).<br>
+      <b>1. Dịch nghĩa 4 đáp án:</b><br>
+      - A. Cuộc họp diễn ra vào Thứ Hai lúc 9:30 sáng.<br>
+      - B. Cuộc họp thường không bắt đầu lúc 9:30 sáng.<br>
+      - C. Có cuộc họp vào mỗi sáng Thứ Ba.<br>
+      - D. Có các cuộc họp vào cả sáng Thứ Hai và Thứ Ba.<br>
+      <b>2. Tại sao chọn A?</b> Cuộc họp đã chốt chuyển sang thời gian mới là Thứ Hai lúc 9:30 sáng.<br>
+      <b>3. Tại sao B, C, D sai?</b> B, C, D hiểu sai thông tin được điều chỉnh trong tin nhắn.
+    `
+  },
+  // Reading Comprehension (Q31-Q36)
+  {
+    id: 31,
+    section: "READING COMPREHENSION",
+    q: "How do people often feel when they volunteer?",
+    displayQ: "Question 31:",
+    options: [
+      { key: 'A', text: "They feel bored.", isCorrect: false },
+      { key: 'B', text: "They feel funny.", isCorrect: false },
+      { key: 'C', text: "They feel satisfied and proud.", isCorrect: true },
+      { key: 'D', text: "They feel happy.", isCorrect: false }
+    ],
+    correctKey: 'C',
+    exp: `
+      <b>Phân tích bài đọc:</b><br>
+      • Trích dẫn trong bài: "The first reason why many families do volunteer work is that <b>they feel satisfied and proud</b>."<br>
+      <b>1. Dịch nghĩa toàn câu:</b> "Mọi người thường cảm thấy thế nào khi làm từ thiện/tình nguyện?" -> Họ cảm thấy hài lòng và tự hào.<br>
+      <b>2. Tại sao chọn C?</b> Giữ nguyên từ vựng chuẩn xác trong đoạn 1 của văn bản.<br>
+      <b>3. Tại sao A, B, D sai?</b> A, B sai nghĩa; D (happy) không sát hoàn toàn câu chữ gốc trong bài bằng C.
+    `
+  },
+  {
+    id: 32,
+    section: "READING COMPREHENSION",
+    q: "Why don’t some people have time to volunteer?",
+    displayQ: "Question 32:",
+    options: [
+      { key: 'A', text: "Because they don’t like this work.", isCorrect: false },
+      { key: 'B', text: "Because they have to work and take care of their families.", isCorrect: true },
+      { key: 'C', text: "Because they are very sad.", isCorrect: false },
+      { key: 'D', text: "Because they don’t have enough money.", isCorrect: false }
+    ],
+    correctKey: 'B',
+    exp: `
+      <b>Phân tích bài đọc:</b><br>
+      • Trích dẫn bài đọc: "But many people say they don’t have time to volunteer <b>because they have to work and take care of their families</b>."<br>
+      <b>1. Dịch nghĩa:</b> "Tại sao một số người không có thời gian làm tình nguyện?" -> Vì họ phải làm việc và chăm sóc gia đình.<br>
+      <b>2. Tại sao chọn B?</b> Khớp 100% với lý do đưa ra trong bài đọc.<br>
+      <b>3. Tại sao A, C, D sai?</b> Các lý do không được đề cập trong bài.
+    `
+  },
+  {
+    id: 33,
+    section: "READING COMPREHENSION",
+    q: "Which word is the CLOSEST in meaning to \"take care of\" in the passage?",
+    displayQ: "Question 33:",
+    options: [
+      { key: 'A', text: "look after", isCorrect: true },
+      { key: 'B', text: "take up", isCorrect: false },
+      { key: 'C', text: "look over", isCorrect: false },
+      { key: 'D', text: "take after", isCorrect: false }
+    ],
+    correctKey: 'A',
+    exp: `
+      <b>Phân tích từ đồng nghĩa (Closest in meaning):</b><br>
+      • <b>take care of</b> (v) = <b>look after</b> (v): chăm sóc, trông nom.<br>
+      • B. take up: bắt đầu một sở thích.<br>
+      • C. look over: kiểm tra nhanh.<br>
+      • D. take after: giống ai đó (về diện mạo, tính cách).<br>
+      <b>1. Dịch nghĩa:</b> Từ nào đồng nghĩa với cụm "take care of"? -> "look after".<br>
+      <b>2. Tại sao chọn A?</b> Cả 2 cụm đều mang nghĩa chăm sóc gia đình/người khác.<br>
+      <b>3. Tại sao B, C, D sai?</b> Mang nghĩa hoàn toàn khác.
+    `
+  },
+  {
+    id: 34,
+    section: "READING COMPREHENSION",
+    q: "Which word is the OPPOSITE in meaning to \"satisfied\" in the passage?",
+    displayQ: "Question 34:",
+    options: [
+      { key: 'A', text: "happy", isCorrect: false },
+      { key: 'B', text: "unhappy", isCorrect: true },
+      { key: 'C', text: "pleasant", isCorrect: false },
+      { key: 'D', text: "surprised", isCorrect: false }
+    ],
+    correctKey: 'B',
+    exp: `
+      <b>Phân tích từ trái nghĩa (Opposite):</b><br>
+      • <b>satisfied</b> (adj): hài lòng, thỏa mãn, vui vẻ.<br>
+      • Từ trái nghĩa mang tính tiêu cực: <b>unhappy</b> (không vui/không hài lòng) hoặc unsatisfied.<br>
+      • A. happy (đồng nghĩa); C. pleasant (dễ chịu); D. surprised (ngạc nhiên).<br>
+      <b>1. Dịch nghĩa:</b> Từ nào trái nghĩa với từ "satisfied"? -> "unhappy".<br>
+      <b>2. Tại sao chọn B?</b> B là từ mang nghĩa trái ngược rõ nhất trong 4 lựa chọn.<br>
+      <b>3. Tại sao A, C, D sai?</b> A, C mang nghĩa tích cực; D không liên quan.
+    `
+  },
+  {
+    id: 35,
+    section: "READING COMPREHENSION",
+    q: "Which of the following sentences is NOT TRUE?",
+    displayQ: "Question 35:",
+    options: [
+      { key: 'A', text: "People volunteer because they feel satisfied.", isCorrect: false },
+      { key: 'B', text: "Your family can make and donate gift blankets for the rich people.", isCorrect: true },
+      { key: 'C', text: "Volunteering is a great way for families to have fun.", isCorrect: false },
+      { key: 'D', text: "Your family can spend once a month collecting rubbish.", isCorrect: false }
+    ],
+    correctKey: 'B',
+    exp: `
+      <b>Phân tích tính đúng/sai so với bài đọc:</b><br>
+      • Trong bài viết: "...donate gift blankets for <b>old homeless people</b>" (tặng chăn quà cho người già vô gia cư).<br>
+      • Câu B ghi: "...donate gift blankets for <b>the rich people</b>" (tặng chăn cho người giàu) -> <b>SAI (NOT TRUE)</b>.<br>
+      <b>1. Dịch nghĩa:</b> Câu nào sau đây KHÔNG ĐÚNG?<br>
+      <b>2. Tại sao chọn B?</b> Vì câu B sai sự thật so với văn bản gốc.<br>
+      <b>3. Tại sao A, C, D không chọn?</b> Vì A, C, D đều là thông tin ĐÚNG có trong bài đọc.
+    `
+  },
+  {
+    id: 36,
+    section: "READING COMPREHENSION",
+    q: "Which of the following best describes the main idea of the passage?",
+    displayQ: "Question 36:",
+    options: [
+      { key: 'A', text: "Collecting rubbish in the neighborhood is an example of volunteer work.", isCorrect: false },
+      { key: 'B', text: "Your family can make many things for the old homeless people.", isCorrect: false },
+      { key: 'C', text: "The reasons why many families do volunteer work.", isCorrect: true },
+      { key: 'D', text: "Many families like doing volunteer work because they have time.", isCorrect: false }
+    ],
+    correctKey: 'C',
+    exp: `
+      <b>Phân tích ý chính (Main idea):</b><br>
+      • Ngay câu đầu tiên bài đọc đã nêu chủ đề chính: "The first reason why many families do volunteer work is that...". Cả bài tập trung nói về các lý do (cảm thấy hài lòng, gắn kết gia đình) và gợi ý cách gia đình thu xếp làm từ thiện.<br>
+      <b>1. Dịch nghĩa:</b> Câu nào mô tả đúng nhất ý chính của đoạn văn? -> "Những lý do tại sao nhiều gia đình làm công việc tình nguyện."<br>
+      <b>2. Tại sao chọn C?</b> Khái quát được toàn bộ nội dung của bài đọc.<br>
+      <b>3. Tại sao A, B, D sai?</b> A, B chỉ là ví dụ nhỏ (supporting details); D sai thực tế bài đọc (nhiều người kêu KHÔNG có thời gian).
+    `
+  },
+  // Cloze Insert (Q37-Q40)
+  {
+    id: 37,
+    section: "CLOZE INSERTION",
+    q: "My favourite hobby is coin collecting. It is also one of the oldest hobbies of the world and is also called 'hobby of the Kings' (37) ________________ , it was only done by kings and elite class of the society.",
+    displayQ: "Question 37:",
+    options: [
+      { key: 'A', text: "give me coins of different countries.", isCorrect: false },
+      { key: 'B', text: "as in the old times", isCorrect: true },
+      { key: 'C', text: "I feel extreme pleasure in showing my collection to others", isCorrect: false },
+      { key: 'D', text: "Since then, it has become my favourite hobby", isCorrect: false }
+    ],
+    correctKey: 'B',
+    exp: `
+      <b>Phân tích ngữ cảnh vế 37:</b><br>
+      • Vế sau: "...it was only done by kings and elite class..." (nó chỉ được thực hiện bởi nhà vua và giới thượng lưu) -> Cần cụm từ chỉ thời gian xưa cũ "như thời ngày xưa".<br>
+      <b>1. Dịch nghĩa ghép câu:</b> "...được gọi là 'sở thích của các vị vua' (37) <b>như thời ngày xưa</b>, nó chỉ được thực hiện bởi các vị vua và tầng lớp thượng lưu..."<br>
+      <b>2. Tại sao chọn B?</b> "as in the old times" khớp hoàn hảo về ngữ nghĩa và cấu trúc nối.<br>
+      <b>3. Tại sao A, C, D sai?</b> Không phù hợp ngữ cảnh nối ở vị trí 37.
+    `
+  },
+  {
+    id: 38,
+    section: "CLOZE INSERTION",
+    q: "It started for me some years back when my father used to come back from his foreign tours and (38)_________________ I started collecting them in my money box...",
+    displayQ: "Question 38:",
+    options: [
+      { key: 'A', text: "give me coins of different countries.", isCorrect: true },
+      { key: 'B', text: "as in the old times", isCorrect: false },
+      { key: 'C', text: "I feel extreme pleasure in showing my collection to others", isCorrect: false },
+      { key: 'D', text: "Since then, it has become my favourite hobby", isCorrect: false }
+    ],
+    correctKey: 'A',
+    exp: `
+      <b>Phân tích vế 38:</b><br>
+      • Vế trước: "...bố tôi trở về từ các chuyến đi nước ngoài và..." -> Cần hành động của người bố tiếp theo song song với "come back".<br>
+      • Vế sau: "...I started collecting <b>them</b> in my money box" (Tôi bắt đầu sưu tầm <b>chúng</b>) -> 'them' ở đây chính là "coins of different countries".<br>
+      <b>1. Dịch nghĩa:</b> "...bố tôi thường trở về từ các chuyến đi nước ngoài và <b>cho tôi những đồng xu của các quốc gia khác nhau</b>."<br>
+      <b>2. Tại sao chọn A?</b> "give me coins of different countries" giải thích rõ từ "them" ở vế sau.<br>
+      <b>3. Tại sao B, C, D sai?</b> Không phù hợp ngữ pháp nối sau từ 'and'.
+    `
+  },
+  {
+    id: 39,
+    section: "CLOZE INSERTION",
+    q: "...and after that I always used to wait for my new coins as much I used to wait for my father. (39)____________________. This hobby has given me information about different countries of the world.",
+    displayQ: "Question 39:",
+    options: [
+      { key: 'A', text: "give me coins of different countries.", isCorrect: false },
+      { key: 'B', text: "as in the old times", isCorrect: false },
+      { key: 'C', text: "I feel extreme pleasure in showing my collection to others", isCorrect: false },
+      { key: 'D', text: "Since then, it has become my favourite hobby", isCorrect: true }
+    ],
+    correctKey: 'D',
+    exp: `
+      <b>Phân tích vị trí 39:</b><br>
+      • Đoạn văn đang kể về mốc thời gian bắt đầu sưu tầm xu hồi nhỏ -> Chuyển tiếp kết luận quá trình: "Kể từ đó, nó đã trở thành sở thích yêu thích của tôi."<br>
+      <b>1. Dịch nghĩa:</b> "Và sau đó tôi luôn chờ đợi những đồng xu mới... (39) <b>Kể từ đó, nó đã trở thành sở thích yêu thích của tôi.</b> Nguồn sở thích này đã cho tôi thông tin về các quốc gia khác nhau..."<br>
+      <b>2. Tại sao chọn D?</b> "Since then, it has become my favourite hobby" làm mốc nối hoàn hảo giữa quá khứ và hiện tại.<br>
+      <b>3. Tại sao A, B, C sai?</b> Không tạo tính chuyển tiếp mạch văn hợp lý.
+    `
+  },
+  {
+    id: 40,
+    section: "CLOZE INSERTION",
+    q: "This hobby has given me information about different countries of the world. (40)_______________ It has also taught me this lesson that...",
+    displayQ: "Question 40:",
+    options: [
+      { key: 'A', text: "give me coins of different countries.", isCorrect: false },
+      { key: 'B', text: "as in the old times", isCorrect: false },
+      { key: 'C', text: "I feel extreme pleasure in showing my collection to others", isCorrect: true },
+      { key: 'D', text: "Since then, it has become my favourite hobby", isCorrect: false }
+    ],
+    correctKey: 'C',
+    exp: `
+      <b>Phân tích vị trí 40:</b><br>
+      • Động từ "It has also taught me..." ở câu sau bổ sung thêm một niềm vui/lợi ích khác -> Trước đó cần một câu nói về cảm xúc sung sướng khi chia sẻ bộ sưu tập.<br>
+      <b>1. Dịch nghĩa:</b> "Sở thích này cho tôi kiến thức về các quốc gia. <b>Tôi cảm thấy cực kỳ vui sướng khi khoe bộ sưu tập của mình với người khác.</b> Nó cũng dạy tôi bài học rằng..."<br>
+      <b>2. Tại sao chọn C?</b> "I feel extreme pleasure in showing my collection to others" điền đúng vào khoảng trống duy nhất còn lại.<br>
+      <b>3. Tại sao A, B, D sai?</b> Đã được sử dụng hợp lý ở các câu 37, 38, 39.
+    `
+  }
+];
+
+// Helper: Fisher-Yates Shuffle Array
+function shuffleArray(array) {
+  const arr = [...array];
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+// Global state for user progress
+let processedQuestions = [];
+let userAnswers = {};
+
+// Render Quiz Interface
+function renderQuiz() {
+  const container = document.getElementById('quiz-container');
+  container.innerHTML = '';
+
+  let currentSection = "";
+
+  // Insert Reading Passages as Section Banners where appropriate
+  processedQuestions.forEach((item, index) => {
+    // Render Section Header if changed
+    if (item.section !== currentSection) {
+      currentSection = item.section;
+      const secHeader = document.createElement('div');
+      secHeader.className = 'section-title';
+      secHeader.innerText = `📌 ${currentSection}`;
+      container.appendChild(secHeader);
+
+      // Special Passages inserting
+      if (item.id === 19) {
+        const passageBox = document.createElement('div');
+        passageBox.className = 'passage-box';
+        passageBox.innerHTML = `
+          <b>📖 Read the following text for Questions 19 to 24:</b><br><br>
+          Living a healthy lifestyle is important for teens, and it’s something everyone should focus (19)__________. My favourite nutritionist once said: “Teens should be more aware of what they eat, (20)______ they could make healthier choices”. She added that teens often eat too (21)______ which is not good for their health. The nutritionist explained that teens should eat more fruits and vegetables, which are full of vitamins to help the body stay (22) __________. She believes that the more teens learn about (23) __________, the better their overall health will be. She also mentioned, "I wish teenagers always started (24)__________ day with a good breakfast." She insisted that understanding these habits could lead to a healthier future.
+        `;
+        container.appendChild(passageBox);
+      } else if (item.id === 31) {
+        const passageBox = document.createElement('div');
+        passageBox.className = 'passage-box';
+        passageBox.innerHTML = `
+          <b>📖 Read the passage for Questions 31 to 36:</b><br><br>
+          The first reason why many families do volunteer work is that they feel satisfied and proud. The feeling of fulfillment comes from helping the community and other people. In addition, volunteering is a great way for families to have fun and be closer. But many people say they don’t have time to volunteer because they have to work and take care of their families. If that’s the case, try rethinking some of your free time as a family. You could select just one or two projects a year and make them a family tradition. For instance, your family can make and donate gift blankets for old homeless people on holidays. Your family can also spend only one Saturday morning a month collecting rubbish in your neighborhood.
+        `;
+        container.appendChild(passageBox);
+      } else if (item.id === 37) {
+        const passageBox = document.createElement('div');
+        passageBox.className = 'passage-box';
+        passageBox.innerHTML = `
+          <b>📖 Read the text and choose the options for Questions 37 to 40:</b><br><br>
+          <b>A LIFE WITHOUT A HOBBY IS JUST LIKE FOOD WITHOUT SALT.</b><br>
+          My favourite hobby is coin collecting. It is also one of the oldest hobbies of the world and is also called 'hobby of the Kings' (37) ________________ , it was only done by kings and elite class of the society. It started for me some years back when my father used to come back from his foreign tours and (38)_________________ I started collecting them in my money box and after that I always used to wait for my new coins as much I used to wait for my father. (39)____________________. This hobby has given me information about different countries of the world. (40)_______________ It has also taught me this lesson...
+        `;
+        container.appendChild(passageBox);
+      }
+    }
+
+    // Render Question Card
+    const qCard = document.createElement('div');
+    qCard.className = 'question-card';
+    qCard.id = `q-card-${item.id}`;
+
+    const qNum = document.createElement('div');
+    qNum.className = 'q-number';
+    qNum.innerText = `Câu ${item.id} / 40`;
+
+    const qText = document.createElement('div');
+    qText.className = 'q-text';
+    qText.innerHTML = `${item.q}`;
+
+    const optGrid = document.createElement('div');
+    optGrid.className = 'options-grid';
+
+    // Render options (shuffled)
+    item.shuffledOptions.forEach((opt, optIdx) => {
+      const btn = document.createElement('button');
+      btn.className = 'opt-btn';
+      btn.id = `opt-${item.id}-${opt.key}`;
+      btn.innerHTML = `<span><b>${String.fromCharCode(65 + optIdx)}.</b> ${opt.text}</span>`;
+      btn.onclick = () => selectAnswer(item.id, opt, btn);
+      optGrid.appendChild(btn);
+    });
+
+    // Explanation Box Container
+    const expBox = document.createElement('div');
+    expBox.className = 'explanation-box';
+    expBox.id = `exp-${item.id}`;
+    expBox.innerHTML = `
+      <div class="exp-title">💡 GIẢI THÍCH CHI TIẾT TỪ MS LÊ HẰNG:</div>
+      <div class="exp-content">${item.exp}</div>
+    `;
+
+    qCard.appendChild(qNum);
+    qCard.appendChild(qText);
+    qCard.appendChild(optGrid);
+    qCard.appendChild(expBox);
+
+    container.appendChild(qCard);
+  });
+}
+
+// User selection logic
+function selectAnswer(qId, selectedOpt, btnElement) {
+  if (userAnswers[qId] !== undefined) return; // Prevent re-selection
+
+  const question = processedQuestions.find(q => q.id === qId);
+  userAnswers[qId] = selectedOpt.isCorrect;
+
+  const allBtns = document.querySelectorAll(`[id^="opt-${qId}-"]`);
+  allBtns.forEach(b => b.disabled = true);
+
+  if (selectedOpt.isCorrect) {
+    btnElement.classList.add('correct');
+    playSound('correct');
+    confetti({
+      particleCount: 40,
+      spread: 60,
+      origin: { y: 0.7 }
+    });
+  } else {
+    btnElement.classList.add('wrong');
+    playSound('wrong');
+
+    // Highlight the correct option as well
+    const correctOpt = question.shuffledOptions.find(o => o.isCorrect);
+    const correctBtn = document.getElementById(`opt-${qId}-${correctOpt.key}`);
+    if (correctBtn) {
+      correctBtn.classList.add('correct');
+    }
+  }
+
+  // Show Explanation immediately
+  const expBox = document.getElementById(`exp-${qId}`);
+  if (expBox) {
+    expBox.style.display = 'block';
+  }
+}
+
+// Submit Quiz and show Score Popup
+function submitQuiz() {
+  let score = 0;
+  let answeredCount = 0;
+
+  processedQuestions.forEach(q => {
+    if (userAnswers[q.id] !== undefined) {
+      answeredCount++;
+      if (userAnswers[q.id] === true) {
+        score++;
+      }
+    }
+  });
+
+  const percentage = (score / 40) * 100;
+  let feedbackMsg = "";
+
+  if (percentage < 50) {
+    feedbackMsg = "“Điểm lần này chưa cao lắm, con cố gắng đọc kỹ giải thích đáp án và làm lại nha. Cô tin con sẽ làm tốt hơn ở lần sau!” - Ms Lê Hằng";
+  } else if (percentage <= 80) {
+    feedbackMsg = "“Con đã có tiến bộ khá ổn rồi, con cố gắng đọc kỹ giải thích đáp án và làm lại nha. Cô tin con sẽ làm tốt hơn ở lần sau!” - Ms Lê Hằng";
+  } else {
+    feedbackMsg = "“Làm tốt lắm, con cố gắng rinh điểm 10 ở lần sau nha!” - Ms Lê Hằng";
+  }
+
+  document.getElementById('modalScore').innerText = `${score} / 40 Câu Đúng (${Math.round(percentage)}%)`;
+  document.getElementById('modalMsg').innerText = feedbackMsg;
+
+  document.getElementById('resultModal').style.display = 'flex';
+
+  if (percentage >= 80) {
+    confetti({
+      particleCount: 150,
+      spread: 100,
+      origin: { y: 0.5 }
+    });
+  }
+}
+
+function closeModal() {
+  document.getElementById('resultModal').style.display = 'none';
+}
+
+// Initialize on page load
+window.onload = () => {
+  // Process questions with option shuffling
+  processedQuestions = rawQuestions.map(q => {
+    const shuffledOpts = shuffleArray(q.options);
+    return {
+      ...q,
+      shuffledOptions: shuffledOpts
+    };
+  });
+
+  renderQuiz();
+};
+</script>
+
+</body>
+</html>
+```eof
+
+Tập tin HTML tương tác đã được tạo thành công. Bạn có thể mở trực tiếp tập tin này trên bất kỳ trình duyệt nào để trải nghiệm đề thi hoàn chỉnh với đầy đủ hiệu ứng âm thanh, chấm điểm tức thì và giải thích siêu chi tiết!
